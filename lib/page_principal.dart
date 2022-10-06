@@ -86,7 +86,7 @@ class _PagePrincipalState extends State<PagePrincipal> {
               'Guatemala',
               style: Theme.of(context)
                   .textTheme
-                  .headline3
+                  .headline4
                   ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
               textAlign: TextAlign.left,
             ),
@@ -95,10 +95,8 @@ class _PagePrincipalState extends State<PagePrincipal> {
             width: 350,
             child: Text(
               'Corazon del mundo maya',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge
-                  ?.copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w500, color: Colors.blueGrey),
               textAlign: TextAlign.left,
             ),
           ),
@@ -120,8 +118,8 @@ class _PagePrincipalState extends State<PagePrincipal> {
               'Actividades',
               style: Theme.of(context)
                   .textTheme
-                  .headline4
-                  ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
+                  .headline6
+                  ?.copyWith(fontWeight: FontWeight.w800, color: Colors.black),
               textAlign: TextAlign.left,
             ),
           ),
@@ -198,7 +196,7 @@ Widget buildCard2({required CardItem2 item, required BuildContext context}) =>
                 textAlign: TextAlign.left,
               ),
               const SizedBox(
-                width: 200,
+                width: 180,
               ),
               Column(
                 children: [
