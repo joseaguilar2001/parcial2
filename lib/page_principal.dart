@@ -30,7 +30,7 @@ class PagePrincipal extends StatefulWidget {
 class _PagePrincipalState extends State<PagePrincipal> {
   List<CardItem> items = [
     const CardItem(
-        urlImage: 'assets/images/atitlan.jpg',
+        urlImage: 'assets/images/tikal.jpg',
         title: 'Tikal',
         subtitle: 'Civilizacion maya, en su maxima expresion'),
     const CardItem(
@@ -70,97 +70,84 @@ class _PagePrincipalState extends State<PagePrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SizedBox(
-          width: 330,
-          height: 60,
-          child: Text(
-            'Guatemala',
-            style: Theme.of(context)
-                .textTheme
-                .headline3
-                ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
-            textAlign: TextAlign.left,
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-            width: 330,
+        body: SizedBox.expand(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: 300,
             height: 60,
             child: Text(
-              'Corazon del mundo maya',
+              'Guatemala',
               style: Theme.of(context)
                   .textTheme
-                  .bodySmall
+                  .headline3
                   ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
               textAlign: TextAlign.left,
-            )),
-        const SizedBox(
-          height: 10,
-        ),
-        ListView.separated(
-            padding: const EdgeInsets.all(16),
-            scrollDirection: Axis.horizontal,
-            itemCount: 4,
-            separatorBuilder: ((context, _) => const SizedBox(
-                  width: 12,
-                )),
-            itemBuilder: (context, index) =>
-                buildCard(item: items[index], context: context)),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-          width: 300,
-          child: Text(
-            'Actividades',
+            ),
+          ),
+          SizedBox(
+              child: Text(
+            'Corazon del mundo maya',
             style: Theme.of(context)
                 .textTheme
-                .headline3
+                .bodySmall
                 ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
             textAlign: TextAlign.left,
+          )),
+          SizedBox(
+            width: 300,
+            height: 300,
+            child: ListView.separated(
+                padding: const EdgeInsets.all(16),
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                separatorBuilder: ((context, _) => const SizedBox(
+                      width: 20,
+                    )),
+                itemBuilder: (context, index) =>
+                    buildCard(item: items[index], context: context)),
           ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        ListView.separated(
-            padding: const EdgeInsets.all(16),
-            scrollDirection: Axis.vertical,
-            itemCount: 4,
-            separatorBuilder: ((context, _) => const SizedBox(
-                  width: 12,
-                )),
-            itemBuilder: (context, index) =>
-                buildCard(item: items[index], context: context)),
-      ],
+          SizedBox(
+            width: 300,
+            child: Text(
+              'Actividades',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline3
+                  ?.copyWith(fontWeight: FontWeight.w600, color: Colors.black),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            height: 300,
+            width: 300,
+            child: ListView.separated(
+                scrollDirection: Axis.vertical,
+                itemCount: 4,
+                separatorBuilder: ((context, _) => const SizedBox(
+                      width: 10,
+                    )),
+                itemBuilder: (context, index) =>
+                    buildCard2(item: items2[index], context: context)),
+          ),
+        ],
+      ),
     ));
   }
 }
 
 Widget buildCard({required CardItem item, required BuildContext context}) =>
     Container(
-      width: 200,
-      height: 200,
-      color: Colors.white.withOpacity(1.0),
+      height: 100,
+      width: 170,
+      color: Colors.white.withOpacity(0.5),
       child: Column(
         children: [
-          Expanded(
-            child: AspectRatio(
-                aspectRatio: 4 / 3,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Image.network(item.urlImage, fit: BoxFit.cover),
-                )),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
           Text(
             item.title,
             style: Theme.of(context)
@@ -176,15 +163,23 @@ Widget buildCard({required CardItem item, required BuildContext context}) =>
                 .labelSmall
                 ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
             textAlign: TextAlign.left,
-          )
+          ),
+          Expanded(
+            child: AspectRatio(
+                aspectRatio: 4 / 3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(item.urlImage, fit: BoxFit.cover),
+                )),
+          ),
         ],
       ),
     );
 
 Widget buildCard2({required CardItem2 item, required BuildContext context}) =>
     Container(
-      width: 500,
-      height: 200,
+      height: 100,
+      width: 150,
       color: Colors.white.withOpacity(1.0),
       child: Column(
         children: [
@@ -192,7 +187,7 @@ Widget buildCard2({required CardItem2 item, required BuildContext context}) =>
             child: AspectRatio(
                 aspectRatio: 4 / 3,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.circular(20),
                   child: Image.asset(item.urlImage, fit: BoxFit.cover),
                 )),
           ),
